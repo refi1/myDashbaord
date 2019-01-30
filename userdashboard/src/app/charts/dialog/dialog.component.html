@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Create Chart</h1>
+<div mat-dialog-content>
+  <div class="mat-body-1">
+    <mat-card>
+      <form [formGroup]="createForm" class="edit-form">
+        <mat-form-field style="margin-right: 30px ">
+          <mat-select placeholder="Charts" formControlName="chart" #chart>
+            <mat-option value="pie">Pie</mat-option>
+            <mat-option value="doughnut">Doughnut</mat-option>
+            <mat-option value="line">Line</mat-option>
+            <mat-option value="polarArea">Polar Area</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Data" formControlName="data" #data>
+            <mat-option value="age">Age</mat-option>
+            <mat-option value="gender">Gender</mat-option>
+            <mat-option value="severity">Severity</mat-option>
+            <mat-option value="status">Status</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+
+        <br /><br />
+        <div mat-dialog-actions>
+          <button
+            class="mat-raised-button mat-primary"
+            mat-dialog-close
+            (click)="addChart(createForm.value)"
+          >
+            Save
+          </button>
+          <button mat-button mat-dialog-close>Close</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

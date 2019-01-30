@@ -1,0 +1,73 @@
+ <section id="login" class="secondary-color text-center scrollto clearfix ">
+    <div class="row clearfix">
+
+      <div class="container">
+
+        <div class="center-form panel">
+          <div class="panel-body">
+          <h4 class="text-center"><i class="ion-ios-lock"></i>  Sign up</h4>
+
+          <form [formGroup]="signupForm"  (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="text" class="form-control form-names input-lg" [ngClass]="{ 'is-invalid': submitted && f.emer.errors }" formControlName="emer" name="emer" placeholder="First Name">
+                <input type="text" class="form-control form-names input-lg" [ngClass]="{ 'is-invalid': submitted && f.mbimer.errors }" formControlName="mbimer" name="mbimer" placeholder="Last name">
+                  <div *ngIf="submitted && f.emer.errors" class="invalid-feedback">
+                            <div *ngIf="f.emer.errors.required">First Name is required!</div>
+                  </div>
+                  <div *ngIf="submitted && f.mbimer.errors" class="invalid-feedback">
+                            <div *ngIf="f.mbimer.errors.required">Last Name is required!</div>
+                  </div>
+              </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  formControlName="email" name="email" placeholder="Email">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required!</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address!</div>
+              </div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control input-lg" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" name="password" placeholder="Password">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required!</div>
+                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters!</div>
+                        </div>
+            </div>
+            <div class="form-group" >
+
+              <input type="radio" name="gjinia" style="vertical-align:middle;"formControlName="gjinia" value="M"[ngClass]="{ 'is-invalid': submitted && f.gjinia.errors }" /> Male &nbsp;
+              <input type="radio" name="gjinia" style="vertical-align:middle;"formControlName="gjinia" value="F" [ngClass]="{ 'is-invalid': submitted && f.gjinia.errors }" /> Female
+                <div *ngIf="submitted && f.gjinia.errors" class="invalid-feedback">
+                    <div *ngIf="f.gjinia.errors.required">Gender is required!</div>
+                </div>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control input-lg" min="1" max="80" [ngClass]="{ 'is-invalid': submitted && f.mosha.errors }" formControlName="mosha" name="mosha" placeholder="Age">
+              <div *ngIf="submitted && f.mosha.errors" class="invalid-feedback">
+                  <div *ngIf="f.mosha.errors.required">Age is required!</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" formControlName="shteti" [ngClass]="{ 'is-invalid': submitted && f.shteti.errors }" name="shteti" placeholder="State">
+              <div *ngIf="submitted && f.shteti.errors" class="invalid-feedback">
+                  <div *ngIf="f.shteti.errors.required">State is required!</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" formControlName="qyteti" [ngClass]="{ 'is-invalid': submitted && f.qyteti.errors }"name="qyteti" placeholder="City">
+              <div *ngIf="submitted && f.qyteti.errors" class="invalid-feedback">
+                  <div *ngIf="f.qyteti.errors.required">City is required!</div>
+              </div>
+            </div>
+
+            <button type="submit" [disabled]="loading" class="btn btn-block btn-success" (click)="signup(signupForm)"> Sign up</button>
+
+            <p class="text-center">
+              <small>Already have an account! <a routerLink="/login"> Login</a></small>
+            </p>
+          </form>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  <section>

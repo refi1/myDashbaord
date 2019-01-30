@@ -1,0 +1,40 @@
+<div>
+<div id="header" class="nav-collapse nav-solid">
+
+        <div class="row clearfix">
+            <div class="col-1">
+                  <nav id="nav-main">
+                      <ul  [style.width.mm]="300">
+                        <li *ngIf="!userIsAuthenticated"><a routerLink="/home"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+                        <li *ngIf="!userIsAuthenticated"><a routerLink="/about"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About Us</a></li>
+                        <li *ngIf="!userIsAuthenticated" ><a routerLink="/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Post</a></li>
+                         <li *ngIf="userIsAuthenticated" ><a routerLink="/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Post</a></li>
+                         <li *ngIf="userIsAuthenticated"><a routerLink="/create"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">New Post</a></li>
+                         <li *ngIf="userIsAuthenticated"><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a></li>
+                         <li *ngIf="!userIsAuthenticated" ><a routerLink="/signup" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Signup</a></li>
+                         <li *ngIf="!userIsAuthenticated"><a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Login</a></li>
+                         <li *ngIf="userIsAuthenticated" ><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"(click)="onLogout()">Logout</a></li>
+                      </ul>
+                  </nav>
+              <!--Main Navigation-->
+
+        <!--End of Main Navigation-->
+        <div id="nav-trigger"><span [class.open]="menuOpen ==false" (click)="toggleMenu(!menuOpen)"></span></div>
+        <nav id="nav-mobile" *ngIf="!menuOpen" (toggleMenu)="toggleMenu($event)" >
+          <ul  [style.width.mm]="300"  >
+            <li *ngIf="!userIsAuthenticated "><a routerLink="/home"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+            <li *ngIf="!userIsAuthenticated"><a routerLink="/about"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About Us</a></li>
+            <li *ngIf="!userIsAuthenticated" ><a routerLink="/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Post</a></li>
+             <li *ngIf="userIsAuthenticated " ><a routerLink="/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Post</a></li>
+             <li *ngIf="userIsAuthenticated"><a routerLink="/create"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">New Post</a></li>
+             <li *ngIf="userIsAuthenticated "><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a></li>
+             <li *ngIf="!userIsAuthenticated " ><a routerLink="/signup" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Signup</a></li>
+             <li *ngIf="!userIsAuthenticated "><a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Login</a></li>
+             <li *ngIf="userIsAuthenticated " ><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"(click)="onLogout()">Logout</a></li>
+          </ul>
+
+      </nav>
+
+        </div>
+    </div><!--End of Header-->
+</div>

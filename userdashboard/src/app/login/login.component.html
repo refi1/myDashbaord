@@ -1,0 +1,38 @@
+<section id="pricing" class="secondary-color text-center scrollto clearfix ">
+  <div class="row clearfix">
+
+    <div class="container">
+
+      <div class="center-form panel">
+        <div class="panel-body">
+        <h4 class="text-center"><i class="ion-md-log-in"></i> Login</h4>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input type="text" id="email" class="form-control input-lg" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  formControlName="email" name="email" placeholder="Email">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required!</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address!</div>
+            </div>
+          </div>
+          <div class="form-group">
+              <input type="password" id="password"class="form-control input-lg" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" name="password" placeholder="Password">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required!</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters!</div>
+                      </div>
+          </div>
+          <button type="submit" id="submit"class="btn btn-block btn-success" (click)="onLogin(loginForm)" > Login</button>
+
+          <p class="text-center">
+            <small>Don't have an account yet? <a routerLink="/signup">Sign up</a></small>
+
+          </p>
+        </form>
+
+      </div>
+      </div>
+
+    </div>
+
+  </div>
+<section>
